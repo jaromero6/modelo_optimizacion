@@ -24,3 +24,17 @@ def get_disponible_modules(name, response):
 
 def save_bd(dictionary_model):
     pass
+
+
+def add_new_person(path, name, modules):
+    if not exist_person(path, name):
+        with open(path, "a+") as file:
+            line = name + "," + modules + "\n"
+            file.write(line)
+            return True
+    return False
+
+
+def exist_person(path, name):
+    return any(map(lambda x: name == x[0], read_db(path)))
+

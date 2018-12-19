@@ -1,5 +1,5 @@
 from PyQt5 import uic
-from frontend import get_model_window
+from frontend import get_model_window, select_change
 
 first_window, class_window = uic.loadUiType("frontend/GUI/first_window.ui")
 
@@ -16,5 +16,7 @@ class FirstWindow(first_window, class_window):
         self.model_window.show()
 
     def modify_bd(self):
-        pass
+        self.hide()
+        self.modify_bd_window = select_change.SelectChange(self)
+        self.modify_bd_window.show()
 

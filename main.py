@@ -7,7 +7,6 @@ def hook(type, value, traceback):
     print(type)
     print(traceback)
 
-
 if __name__ == "__main__":
     sys.__excepthook__ = hook
     app = QApplication(sys.argv)
